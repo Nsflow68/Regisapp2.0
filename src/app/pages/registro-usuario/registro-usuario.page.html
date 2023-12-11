@@ -1,0 +1,56 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title>Registro de alumnos</ion-title>
+    <ion-back-button slot="start"></ion-back-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+<ion-card>
+  <ion-card-content>
+    <form [formGroup]="usuarito" (ngSubmit)="agregar()">
+      <ion-item>
+        <ion-input formControlName="rut" label="Rut:" labelPlacement="stacked" placeholder="Ingrese rut" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="nombre" label="Nombre:"  labelPlacement="stacked" placeholder="Ingrese nombre" type="text"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="correo" label="Correo:" labelPlacement="stacked" placeholder="Ingrese Correo" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="fecha_nacimiento" label="Fecha de nacimiento" labelPlacement="stacked" type="date"></ion-input>
+      </ion-item>
+
+      <ion-item> <!--Perfil--> 
+        <ion-select formControlName="perfil" label="Tipo usuario" placeholder="Seleccione usuario">
+          <ion-select-option value="alumno">Alumno</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="clave" label="Contraseña:" labelPlacement="stacked" placeholder="Ingrese Contraseña" type="password" [counter]="true" maxLength="20"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input formControlName="clave2" label="Ingrese contraseña nuevamente:" labelPlacement="stacked" placeholder="Ingrese Contraseña" type="password" [counter]="true" maxLength="20" ></ion-input>
+      </ion-item>
+
+      <div>
+        <ion-button [disabled]="usuarito.invalid" type="submit" expand="block" color="success">Registrar</ion-button>
+      </div>
+      
+      
+
+    </form>
+    
+  </ion-card-content>
+
+</ion-card>
+</ion-content>
+<ion-footer>
+  <ion-img src= "../../../assets/img/1280px-Logo_DuocUC.svg.png"fixed="true"></ion-img>
+</ion-footer>

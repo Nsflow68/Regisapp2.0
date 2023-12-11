@@ -1,0 +1,25 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Pagina de docente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="fondohome ">
+  <ion-card>
+   
+   <h2 class="centrado">Lista de Asignaturas</h2>
+   <ion-card-content>
+     <div *ngIf="asignaturas.length > 0; else no_hay">
+       <ion-list *ngFor="let asig of asignaturas">
+            <ion-item>
+              <ion-label>{{asig.codigo | titlecase}} - {{asig.nombre | uppercase}}</ion-label>
+              <ion-button slot="end" color="success" [routerLink]="['/home/qr-code']" >Registrar</ion-button>
+            </ion-item>
+        </ion-list>
+      </div>
+      <ng-template #no_hay>
+        <h2 class="centrado">Vacía</h2>
+      </ng-template>
+   </ion-card-content>
+  </ion-card>
+</ion-content>

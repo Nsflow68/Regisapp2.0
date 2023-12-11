@@ -1,0 +1,47 @@
+<!-- <ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Bienvenido a RegisApp
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+-->
+
+<ion-content>
+  <ion-tabs>
+    <ion-tab-bar>
+      <ion-tab-button tab="registro" *ngIf="usuario.perfil=='admin'">
+        <ion-icon name="person-add-outline"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="perfil-usuario">
+        <ion-icon name="home"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="api-clima">
+        <ion-icon name="cloudy-night-outline"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="mapa">
+        <ion-icon name="map-outline"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="asignatura-crud" *ngIf="usuario.perfil=='admin'">
+        <ion-icon name="library-outline"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="docente-page" *ngIf="usuario.perfil=='docente'">
+        <ion-icon name="library-outline"></ion-icon>
+      </ion-tab-button>
+
+      <ion-tab-button tab="alumno-page" *ngIf="usuario.perfil=='alumno'">
+        <ion-icon name="id-card-outline"></ion-icon>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+
+</ion-content>
+
+<ion-footer>
+  <ion-img src= "../../../assets/img/1280px-Logo_DuocUC.svg.png"fixed="true"></ion-img>
+</ion-footer>

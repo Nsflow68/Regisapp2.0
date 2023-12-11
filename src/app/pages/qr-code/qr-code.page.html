@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>qr</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content >
+       
+    <qrcode [qrdata]="data" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+
+    <ion-input label="Código de la clase" [(ngModel)]="data"></ion-input>
+
+    </ion-card-content>
+  </ion-card>
+ 
+</ion-content>

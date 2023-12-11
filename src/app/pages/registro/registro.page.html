@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-back-button slot="start"></ion-back-button>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <h1 class="centrado">Registro de usuario</h1>
+    </ion-card-header>
+
+    <ion-card-content>
+    <form [formGroup]="usuario" (ngSubmit)="registrar()">
+        <ion-item id="rut"> <!-- rut -->
+          <ion-label position="stacked">Rut</ion-label>
+          <ion-input formControlName="rut" type="text" placeholder="Ingrese su Rut"></ion-input>
+        </ion-item>
+
+        <ion-item> <!-- nombre -->
+          <ion-label position="stacked">Nombre</ion-label>
+          <ion-input formControlName="nombre" type="text" placeholder="Ingrese su nombre"></ion-input>
+        </ion-item>
+
+        <ion-item> <!-- Fecha de nacimiento -->
+          <ion-label position="stacked">Fecha de nacimiento</ion-label>
+          <ion-input formControlName="fecha_nac" type="date" placeholder=""></ion-input>
+        </ion-item>
+
+        <ion-item>  <!--Correo--> 
+          <ion-label position="stacked">Correo</ion-label>
+          <ion-input formControlName="correo" type="email" placeholder="Ingrese su email"></ion-input>
+        </ion-item>
+
+        <ion-item> <!--Clave--> 
+          <ion-label position="stacked">Clave</ion-label>
+          <ion-input formControlName="clave" type="password" placeholder="Ingrese su Contraseña"></ion-input>
+        </ion-item>
+
+        <ion-item> <!--Clave2--> 
+          <ion-label position="stacked"></ion-label>
+          <ion-input formControlName="clave2" type="password" placeholder="Vuelva a ingresar su contraseña"></ion-input>
+        </ion-item>
+
+        <ion-item> <!--Perfil--> 
+          <ion-select formControlName="perfil" label="Tipo usuario" placeholder="Seleccione usuario">
+            <ion-select-option value="admin">Administrador</ion-select-option>
+            <ion-select-option value="alumno">Alumno</ion-select-option>
+            <ion-select-option value="docente">Docente</ion-select-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked"></ion-label>
+          <ion-input formControlName="codigo_firebase" type="text"placeholder="codigo Firebase"></ion-input>
+        </ion-item>
+
+        <div [hidden]="boton_registrar">
+          <ion-button [disabled]="usuario.invalid" type="submit" expand="block" color="success">Registrar</ion-button>
+        </div>
+
+        <div [hidden]="boton_modificar">
+          <ion-button color="warning" expand="block" (click)="actualizar()">Modificar</ion-button>
+        </div>
+
+        <ion-button (click)="limpiar()" type="reset" color="dark">Limpiar</ion-button>
+      </form>
+       
+    </ion-card-content>
+
+  </ion-card>
+
+
+  <ion-card>
+    <h2 class="centrado">Lista de usuarios</h2>
+    <div *ngIf="usuarios.length > 0; else no_hay">
+      <ion-list *ngFor="let usu of usuarios">
+        
+        <ion-item-sliding>
+          <ion-item>
+            <ion-label>{{usu.nombre | titlecase}} - {{usu.correo | uppercase}}</ion-label>
+          </ion-item>
+
+          <ion-item-options side="start">
+            <ion-item-option color="success" (click)="buscar(usu.id)">
+              <ion-icon slot="end" name="create">
+              </ion-icon>Modificar
+            </ion-item-option>
+          </ion-item-options>
+
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="eliminar(usu.id)">
+              <ion-icon slot="start" name="trash-bin">
+              </ion-icon>Eliminar
+            </ion-item-option>
+          </ion-item-options>
+        </ion-item-sliding>
+        
+
+      </ion-list>
+    </div>
+    <ng-template #no_hay>
+      
+      <h2 class="centrado">Vacía</h2>
+    </ng-template>
+  </ion-card>
+
+</ion-content>

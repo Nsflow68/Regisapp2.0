@@ -1,0 +1,14 @@
+.centrado{
+  text-align: center;
+}
+ion-toolbar{
+  background-color: var(--ion-color-mycolor);
+}
+/* Cambia el color de fondo de todos los botones a azul */
+ion-button {
+  background-color: var(--ion-color-mycolor);
+  color: white; /* Cambia el color del texto a blanco si es necesario */
+}
+ion-footer {
+  background-color:rgb(2, 2, 151)
+}
