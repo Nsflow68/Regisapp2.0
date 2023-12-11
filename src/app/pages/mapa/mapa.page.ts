@@ -13,7 +13,7 @@ export class MapaPage implements OnInit{
   //2. variables locales para controlar el mapa:
   map: any;
   marker: any;
-  duoc = {lat: -33.59848827265612, lng: -70.57879205226388};
+  duoc = {lat: -33.59835482827573, lng: -70.57861553534555}; //-33.59835482827573, -70.57861553534555
   /*
   direccionsServices = new google.maps.direccionsServices();
   direcccionsRenderer = new google.maps.direcccionsRenderer();*/

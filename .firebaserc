@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "public": "build",
+    "default": "regisapp-8bf25"
+  }
+}
